@@ -48,8 +48,8 @@
           </div>
             <p class="error">Lütfen sözleşmeyi okuyunuz!!</p>
           <div class="form-group">
-            <label for="exampleFormControlTextarea1" style="margin-left: 8px;">Mesaj</label>
-            <textarea id="exampleFormControlTextarea1" rows="3"></textarea>
+            <label for="messageBox">Mesaj</label>
+            <textarea id="messageBox" rows="5"></textarea>
           </div>
           <button id="submitBtn" type="submit">Submit</button>
         </form>
@@ -63,7 +63,11 @@
     <script>
         $('#datePic').datepicker();
         $(document).ready(function () {
+            //phone input key controls
             $('#phone').on('keydown', function (e) {
+                if (e.which===9){
+                    $('#contract').focus();
+                }
                 e.preventDefault();
                 if (e.which===8 && this.value[this.value.length-1]!==' '){
                     $(this).val(this.value.slice(0,this.value.length-1))
@@ -75,17 +79,21 @@
                 if (e.which===48){
                     $(this).val(this.value+'0');
                 }
+
             });
+            //control if contract checked then make invisible to error p
             $('#contract').on('click',function () {
                 let errorDiv=$('.error');
                 errorDiv.is(':visible') ? errorDiv.css('display','none') : null;
             });
+            //for changing code in number field
             $('#alanCodu').on('change',function () {
                 let val=this.value;
                 const phone=$('#phone');
                 let phoneVal=phone.val().split(' - ')[1];
                 phone.val(this.value+' - '+phoneVal);
             });
+            //submit btn
             $('#submitBtn').on('click',function (e) {
                 e.preventDefault();
                 let validated=true;

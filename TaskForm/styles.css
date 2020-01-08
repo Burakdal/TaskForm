@@ -52,7 +52,12 @@ textarea{
     resize: none;
     outline: none;
 }
-input:focus{
+textarea:focus{
+    border-color: darkkhaki;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px darkkhaki;
+    outline: 0 none;
+}
+input:focus,button:focus,select:focus{
     border-color: #00BFFF;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #00BFFF;
     outline: 0 none;
@@ -99,9 +104,10 @@ button{
     margin-left:auto;
     margin-bottom: 10px;
     display: block;
+    padding: 20px;
+    border-radius: 60%;
 
 }
-
 .alert{
     text-align: center;
     border-style:solid;
@@ -119,7 +125,6 @@ button{
     padding: 5px;
     font-weight: bold;
 }
-
 .error{
     color:red;
     font-size: 12px;
