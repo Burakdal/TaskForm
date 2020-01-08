@@ -13,6 +13,11 @@ const isFormValid=()=>{
         if (fieldText === 'phone') {
             val = val.split('-')[1].replace(' ', '');
         }
+        if (fieldText === 'userEmail') {
+            if (!val.includes('@')){
+                val=null;
+            }
+        }
         if (!val) {
             return false;
         }

@@ -24,8 +24,8 @@
                   <label for="userEmail">E-Email</label>
                   <input type="email" id="userEmail"/>
               </div>
-
           </div>
+            <p class="errorMail">Lütfen geçerli bir mail adresi giriniz!!</p>
           <div class="form-group">
             <label for="datePic">Tarih</label>
               <input type="text" id="datePic">
@@ -80,6 +80,13 @@
                     $(this).val(this.value+'0');
                 }
 
+            });
+            $('#userEmail').change(function () {
+               if (!$(this).val().includes('@')){
+                    $('.errorMail').css('display','block');
+               }else{
+                   $('.errorMail').css('display','none');
+               }
             });
             //control if contract checked then make invisible to error p
             $('#contract').on('click',function () {
