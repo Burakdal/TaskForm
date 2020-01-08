@@ -1,0 +1,132 @@
+input,label{
+    display: block;
+    margin: 5px;
+}
+.container{
+    border-color: #00BFFF;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #00BFFF;
+    outline: 0 none;
+    background-color:white;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top:30px;
+    margin-bottom:30px;
+    display: block;
+    border-radius: 10px;
+    width: 33%;
+    padding: 5px;
+}
+label{
+    color: grey;
+}
+form{
+    width: 100%;
+
+}
+input[type=text],input[type=number],input[type=date],input[type=email]{
+    width: 95%;
+    height: 25px;
+    border-radius: 5px;
+    border-width:1px;
+    padding: 3px;
+    outline: none;
+    border-color: lightgray;
+    border-style: solid;
+
+}
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+label{
+    font-size:16px;
+}
+textarea{
+    width: 95%;
+    margin: 5px;
+    padding: 5px 5px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color:white;
+    resize: none;
+    outline: none;
+}
+input:focus{
+    border-color: #00BFFF;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #00BFFF;
+    outline: 0 none;
+}
+.form-group{
+    flex-direction: row;
+    justify-content: stretch;
+    align-items: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+    padding: 3px;
+}
+input{
+    color: grey;
+}
+select{
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    overflow: hidden;
+    height: 30px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 3px;
+    margin-right: auto;
+    margin-left:auto;
+    width: 50%;
+    color: grey;
+    justify-content: center;
+    font-size: 12px;
+
+}
+option{
+    align-self: center;
+    color: grey;
+}
+button{
+    box-shadow: black;
+    border-style: solid;
+    border-color: transparent;
+    background-color: #00BFFF;
+    color: white;
+    margin-right: auto;
+    margin-left:auto;
+    margin-bottom: 10px;
+    display: block;
+
+}
+
+.alert{
+    text-align: center;
+    border-style:solid;
+    border-radius: 5px;
+    outline: 0 none;
+    border-color: transparent;
+    background-color: #daeefc;
+    color: #6b1110;
+    width: 40%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 30px;
+    justify-content: center;
+    display: none;
+    padding: 5px;
+    font-weight: bold;
+}
+
+.error{
+    color:red;
+    font-size: 12px;
+    margin-left:10px;
+    font-style: italic;
+    display: none;
+}
+
+
+

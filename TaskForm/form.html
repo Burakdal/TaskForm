@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task Form</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <div class="alert">
+        Lütfen gerekli alanları dolurunuz!!
+    </div>
+    <div class="container">
+        <form id="contactForm" method="POST" enctype="multipart/form-data">
+          <div class="form-group" style="display: flex">
+              <label for="firstName">İsim</label>
+              <input id="firstName" type="text" class="form-input">
+              <label for="lastName">Soyisim</label>
+              <input type="text" id="lastName" class="form-input">
+          </div>
+          <div class="form-group">
+              <div style="flex: 1;">
+                  <label for="userEmail">E-Email</label>
+                  <input type="email" id="userEmail"/>
+              </div>
+
+          </div>
+          <div class="form-group">
+            <label for="datePic">Tarih</label>
+            <input type="date" id="datePic">
+          </div>
+          <div class="form-group" style="display: flex;">
+              <label for="alanCodu">Ülke</label>
+              <select  id="alanCodu">
+                  <option value="+90">TÜRKİYE</option>
+                  <option value="+1">AMERİKA</option>
+                  <option value="+49">ALMANYA</option>
+                  <option value="+7">RUSYA</option>
+              </select>
+              <label for="phone">Telefon Numarası</label>
+              <input id="phone" value="+90 - "  type="text" />
+          </div>
+          <div class="form-group" style="display: flex;">
+              <input type="checkbox" id="contract">
+              <label  for="contract">Sözleşmeyi okudum</label>
+
+          </div>
+            <p class="error">Lütfen sözleşmeyi okuyunuz!!</p>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1" style="margin-left: 8px;">Mesaj</label>
+            <textarea id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+          <button id="submitBtn" type="submit">Submit</button>
+        </form>
+    </div>
+    <script src="functions.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            $('#phone').on('keydown', function (e) {
+                e.preventDefault();
+                if (e.which===8 && this.value[this.value.length-1]!==' '){
+                    $(this).val(this.value.slice(0,this.value.length-1))
+                }
+                var c = String.fromCharCode(e.which).toLowerCase();
+                if(parseInt(c)&& this.value.length <= $('#alanCodu').val().length+12){
+                    $(this).val(this.value+c);
+                }
+                if (e.which===48){
+                    $(this).val(this.value+'0');
+                }
+            });
+            $('#contract').on('click',function () {
+                let errorDiv=$('.error');
+                errorDiv.is(':visible') ? errorDiv.css('display','none') : null;
+            });
+            $('#alanCodu').on('change',function () {
+                let val=this.value;
+                const phone=$('#phone');
+                let phoneVal=phone.val().split(' - ')[1];
+                phone.val(this.value+' - '+phoneVal);
+            });
+            $('#submitBtn').on('click',function (e) {
+                e.preventDefault();
+                let validated=true;
+                if ($('#contract').prop('checked')){
+                    if (isFormValid()){
+                        let randomInt=Math.round(Math.random());
+                        let alertElement=randomInt===1 ? 'success':'error';
+                        arrangeAlert(alertElement);
+                    }else{
+                        arrangeAlert('warning');
+                    }
+                }else{
+                    $('.error').css('display','block');
+                }
+            });
+        });
+    </script>
+</body>
+
+
+
+</html>
