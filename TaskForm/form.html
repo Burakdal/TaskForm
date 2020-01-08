@@ -61,8 +61,8 @@
       crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
+        $('#datePic').datepicker();
         $(document).ready(function () {
-            $('#datePic').datepicker();
             $('#phone').on('keydown', function (e) {
                 e.preventDefault();
                 if (e.which===8 && this.value[this.value.length-1]!==' '){
